@@ -1,129 +1,129 @@
 # 📚 SchoolSystem
 
-**SchoolSystem**, Windows Forms (WinForms) ve SQL Server kullanılarak geliştirilmiş bir masaüstü öğrenci bilgi sistemidir. Bu uygulama, öğrenci kayıtları, ders bilgileri, kulüpler, öğretmen branşları ve not sisteminin yönetimini sağlar. Eğitim kurumları için sade, kullanışlı ve geliştirilebilir bir otomasyon çözümüdür.
+**SchoolSystem** is a desktop student information system developed using Windows Forms (WinForms) and SQL Server. This application manages student records, course data, clubs, teacher branches, and grading. It offers a simple, user-friendly, and extensible automation solution for educational institutions.
 
-## 🚀 Özellikler
+## 🚀 Features
 
-- Öğrenci yönetimi (ekle, sil, güncelle)
-- Kulüp ve kulüp üyelik takibi
-- Öğretmen-ders eşlemesi
-- Sınav ve proje notlarının takibi
-- Otomatik ortalama ve geçme/durma hesaplaması
-- SQL Server ile veri bütünlüğü ve ilişkili tablolar
-- ADO.NET ile güvenli veri erişimi
-- Kullanıcı dostu Windows Forms arayüzü
-
----
-
-## 🏗️ Proje Mimarisi
-
-| Katman              | Teknoloji                       |
-|---------------------|----------------------------------|
-| Arayüz (UI)         | C# WinForms (.NET Framework 4.8) |
-| Veri Katmanı        | SQL Server                      |
-| Veri Bağlantısı     | ADO.NET                         |
-| Geliştirme Ortamı   | Visual Studio                   |
+- Student management (add, delete, update)
+- Club tracking and memberships
+- Teacher-course mapping
+- Exam and project grade tracking
+- Automatic grade average and pass/fail calculation
+- SQL Server for data integrity and relational structure
+- Secure data access via ADO.NET
+- Intuitive Windows Forms interface
 
 ---
 
-## 🧩 Modül Yapısı
+## 🏗️ Project Architecture
 
-### 🎛️ Ana Form
-- `Form1.cs`: Tüm kullanıcı etkileşimlerinin gerçekleştiği ana arayüz.
-- `Form1.Designer.cs`: Form nesnelerinin tasarımı.
-
-### 🗂️ Veritabanı Entegrasyonu
-- `DataSet1.xsd`: TableAdapter ile güvenli veri modeli tanımı.
-- `App.config`: SQL Server bağlantı dizesini içerir.
+| Layer               | Technology                        |
+|---------------------|------------------------------------|
+| User Interface (UI) | C# WinForms (.NET Framework 4.8)   |
+| Data Layer          | SQL Server                         |
+| Data Access         | ADO.NET                            |
+| IDE                 | Visual Studio                      |
 
 ---
 
-## 🗃️ Veritabanı Tasarımı
+## 🧩 Module Structure
 
-Aşağıdaki tablolar kullanılmıştır:
+### 🎛️ Main Form
+- `Form1.cs`: Main interface where all user interactions occur.
+- `Form1.Designer.cs`: Design file containing form elements.
+
+### 🗂️ Database Integration
+- `DataSet1.xsd`: Defines typed dataset and TableAdapters.
+- `App.config`: Contains SQL Server connection string.
+
+---
+
+## 🗃️ Database Design
+
+The system consists of the following main tables:
 
 ### 🔹 TBL_Students
-| Sütun Adı      | Veri Tipi   | Açıklama                     |
-|----------------|--------------|-------------------------------|
-| StudentID      | int          | Birincil anahtar (PK)         |
-| StudentName    | varchar(30)  | Öğrencinin adı                |
-| StudentSurName | varchar(30)  | Öğrencinin soyadı             |
-| StudentClub    | tinyint      | Kulüp kimliği (FK)            |
-| StudentGender  | varchar(6)   | Cinsiyet bilgisi              |
+| Column Name     | Data Type   | Description                   |
+|------------------|--------------|-------------------------------|
+| StudentID        | int          | Primary key (PK)              |
+| StudentName      | varchar(30)  | First name of the student     |
+| StudentSurName   | varchar(30)  | Last name of the student      |
+| StudentClub      | tinyint      | Club foreign key              |
+| StudentGender    | varchar(6)   | Gender                        |
 
 ### 🔹 TBL_Clubs
-| Sütun Adı   | Veri Tipi   | Açıklama              |
-|-------------|--------------|------------------------|
-| ClubID      | tinyint      | Birincil anahtar (PK)  |
-| ClubName    | varchar(30)  | Kulüp adı              |
+| Column Name | Data Type   | Description             |
+|--------------|--------------|-------------------------|
+| ClubID       | tinyint      | Primary key (PK)        |
+| ClubName     | varchar(30)  | Name of the club        |
 
 ### 🔹 TBL_Lectures
-| Sütun Adı   | Veri Tipi   | Açıklama               |
-|-------------|--------------|-------------------------|
-| LectureID   | tinyint      | Birincil anahtar (PK)   |
-| LectureName | varchar(30)  | Ders adı                |
+| Column Name  | Data Type   | Description             |
+|---------------|--------------|-------------------------|
+| LectureID     | tinyint      | Primary key (PK)        |
+| LectureName   | varchar(30)  | Name of the course      |
 
 ### 🔹 TBL_Teachers
-| Sütun Adı     | Veri Tipi   | Açıklama                             |
-|----------------|--------------|---------------------------------------|
-| TeacherID      | tinyint      | Birincil anahtar (PK)                 |
-| TeacherBranch  | tinyint      | Branş (LectureID ile ilişkili)        |
-| TeacherName    | varchar(50)  | Öğretmenin adı                        |
+| Column Name     | Data Type   | Description                                |
+|------------------|--------------|--------------------------------------------|
+| TeacherID        | tinyint      | Primary key (PK)                           |
+| TeacherBranch    | tinyint      | Foreign key (linked to LectureID)          |
+| TeacherName      | varchar(50)  | Full name of the teacher                   |
 
 ### 🔹 TBL_Notes
-| Sütun Adı     | Veri Tipi     | Açıklama                                 |
-|----------------|----------------|-------------------------------------------|
-| NoteID         | int            | Birincil anahtar (PK)                     |
-| LectureID      | tinyint        | Ders ID'si (FK)                           |
-| StudentID      | int            | Öğrenci ID'si (FK)                        |
-| Exam1          | tinyint        | 1. sınav notu                             |
-| Exam2          | tinyint        | 2. sınav notu                             |
-| Exam3          | tinyint        | 3. sınav notu                             |
-| ProjectNote    | tinyint        | Proje notu                                |
-| Average        | decimal(5,2)   | Ortalama                                  |
-| Status         | bit            | Geçti (1) / Kaldı (0)                     |
+| Column Name     | Data Type     | Description                                 |
+|------------------|----------------|---------------------------------------------|
+| NoteID           | int            | Primary key (PK)                             |
+| LectureID        | tinyint        | Foreign key to course                        |
+| StudentID        | int            | Foreign key to student                       |
+| Exam1            | tinyint        | First exam score                             |
+| Exam2            | tinyint        | Second exam score                            |
+| Exam3            | tinyint        | Third exam score                             |
+| ProjectNote      | tinyint        | Project score                                |
+| Average          | decimal(5,2)   | Calculated average                           |
+| Status           | bit            | Pass (1) / Fail (0)                          |
 
 ---
 
-## 🔗 Tablolar Arası İlişkiler
+## 🔗 Table Relationships
 
 - `TBL_Students.StudentClub` → `TBL_Clubs.ClubID`
 - `TBL_Notes.StudentID` → `TBL_Students.StudentID`
 - `TBL_Notes.LectureID` → `TBL_Lectures.LectureID`
 - `TBL_Teachers.TeacherBranch` → `TBL_Lectures.LectureID`
 
-Veritabanı şeması diyagramı aşağıda yer almaktadır:
+Entity relationship diagram of the database:
 
-![Veritabanı Şeması](f922864a-fe07-4144-9e3f-dc5f4acd9e51.png)
+![Database Schema](f922864a-fe07-4144-9e3f-dc5f4acd9e51.png)
 
 ---
 
-## ⚙️ Kullanım
+## ⚙️ Usage
 
-1. **Projeyi klonlayın:**
+1. **Clone the project:**
    ```bash
-   git clone https://github.com/kullaniciadi/SchoolSystem.git
+   git clone https://github.com/yourusername/SchoolSystem.git
    ```
 
-2. **Visual Studio ile açın**
-   - `SchoolSystem.sln` dosyasını başlatın.
-   - `App.config` içerisindeki `connectionString` alanını kendi SQL Server ayarlarınıza göre güncelleyin.
+2. **Open with Visual Studio**
+   - Open the solution file `SchoolSystem.sln`.
+   - Update the `connectionString` in `App.config` to match your SQL Server configuration.
 
-3. **Veritabanı kurulumunu gerçekleştirin**
-   - `SQL_Schema.sql` içeriğini SQL Server Management Studio ile çalıştırarak veritabanını oluşturun.
+3. **Set up the database**
+   - Execute the `SQL_Schema.sql` script using SQL Server Management Studio to create the schema.
 
-4. **Projeyi çalıştırın**
-   - `F5` tuşu ile uygulamayı başlatın.
+4. **Run the project**
+   - Press `F5` in Visual Studio to build and launch the application.
 
 ---
 
-## 👤 Geliştirici
+## 👤 Developer
 
 - 🌐 [alican-kaya.com](https://alican-kaya.com/)
 - 💼 [LinkedIn: Alican Kaya](https://www.linkedin.com/in/alican-kaya-881650234/)
 
 ---
 
-## 📝 Lisans
+## 📝 License
 
-Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
+This project is licensed under the [MIT License](LICENSE).
