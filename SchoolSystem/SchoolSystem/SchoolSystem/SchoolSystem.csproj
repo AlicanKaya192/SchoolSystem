@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63615425-F7A4-4C48-A472-A6537A2961DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SchoolSystem</RootNamespace>
+    <AssemblyName>SchoolSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClubs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClubs.Designer.cs">
+      <DependentUpon>FrmClubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExamNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExamNotes.Designer.cs">
+      <DependentUpon>FrmExamNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLectures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLectures.Designer.cs">
+      <DependentUpon>FrmLectures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStudentAffairs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStudentAffairs.Designer.cs">
+      <DependentUpon>FrmStudentAffairs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStudentNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStudentNote.Designer.cs">
+      <DependentUpon>FrmStudentNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeacher.Designer.cs">
+      <DependentUpon>FrmTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeachers.Designer.cs">
+      <DependentUpon>FrmTeachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClubs.resx">
+      <DependentUpon>FrmClubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExamNotes.resx">
+      <DependentUpon>FrmExamNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLectures.resx">
+      <DependentUpon>FrmLectures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStudentAffairs.resx">
+      <DependentUpon>FrmStudentAffairs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStudentNote.resx">
+      <DependentUpon>FrmStudentNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeacher.resx">
+      <DependentUpon>FrmTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeachers.resx">
+      <DependentUpon>FrmTeachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\126-1268265_download-svg-download-png-student-icon-png.jpg" />
+    <Content Include="images\1995574.png" />
+    <Content Include="images\5850276.png" />
+    <Content Include="images\add.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\download.png" />
+    <Content Include="images\free-laptop-online-education-icon-12493-thumb.png" />
+    <Content Include="images\images.png" />
+    <Content Include="images\list.jpg" />
+    <Content Include="images\notes.png" />
+    <Content Include="images\school.ico" />
+    <Content Include="images\settings.png" />
+    <Content Include="images\update.png" />
+    <Content Include="images\x.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
