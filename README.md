@@ -92,10 +92,6 @@ The system consists of the following main tables:
 - `TBL_Notes.LectureID` → `TBL_Lectures.LectureID`
 - `TBL_Teachers.TeacherBranch` → `TBL_Lectures.LectureID`
 
-Entity relationship diagram of the database:
-
-![Database Schema](f922864a-fe07-4144-9e3f-dc5f4acd9e51.png)
-
 ---
 
 ## ⚙️ Usage
